@@ -4,11 +4,9 @@ export class Team {
   }
 
   add(person) {
-    this.members.forEach((key) => {
-      if (key.name === person.name) {
-        throw new Error('A user was exist!');
-      }
-    });
+    if (this.members.has(person)) {
+      throw new Error('A user was exist!');
+    }
     this.members.add(person);
   }
 
